@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PAZ — Escudo Inteligente de Chamadas | Comparativo</title>
-<meta name="description" content="PAZ: bloqueio inteligente de chamadas, SMS e WhatsApp com privacidade 100% local. Compare com Truecaller, Whoscall e outros.">
+<meta name="description" content="PAZ: bloqueio inteligente de chamadas sem depender de listas negras. No PRO, a ligação de número fora da agenda é derrubada com sinal de ocupado. Privacidade 100% local. Compare com Truecaller, Whoscall e RoboKiller.">
 <style>
   :root{
     --bg:#0E1116; --surface:#161B22; --surface2:#1C2028; --line:#2E343E;
@@ -48,6 +48,37 @@
   .btn{display:inline-block;background:var(--primary);color:#003918;font-weight:800;text-decoration:none;padding:14px 26px;border-radius:12px;font-size:15px}
   .btn:hover{background:var(--primary-dark);color:#fff}
   .price{color:var(--amber);font-weight:800}
+  /* Badge de destaque no cabecalho */
+  .badge.hl{border-color:rgba(0,230,118,.5);background:rgba(0,230,118,.10);color:var(--text)}
+  /* Blocos de destaque */
+  .callout{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:14px;padding:18px 20px}
+  .callout.warn{border-left-color:var(--amber)}
+  .callout h3{font-size:15.5px;font-weight:800;margin-bottom:8px}
+  .callout p{font-size:13.5px;color:var(--muted)}
+  .callout p + p{margin-top:10px}
+  .callout b{color:var(--text)}
+  /* Ciclo do golpista */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+  .step{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 52px}
+  .step .n{position:absolute;left:14px;top:15px;width:26px;height:26px;border-radius:50%;background:rgba(255,179,0,.15);color:var(--amber);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+  .step h4{font-size:13.5px;font-weight:700;margin-bottom:4px}
+  .step p{font-size:12.5px;color:var(--muted)}
+  /* Comparativo FREE x PRO */
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .plan{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .plan.pro{border-color:rgba(0,230,118,.45);background:linear-gradient(180deg,rgba(0,230,118,.07),var(--surface))}
+  .plan .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-bottom:10px}
+  .plan.free .tag{background:rgba(255,179,0,.16);color:var(--amber)}
+  .plan.pro .tag{background:rgba(0,230,118,.16);color:var(--primary)}
+  .plan h3{font-size:17px;font-weight:800;margin-bottom:10px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .plan li{position:relative;padding-left:22px;font-size:13.5px;color:var(--muted)}
+  .plan li::before{content:"\2714";position:absolute;left:0;top:0;color:var(--primary);font-weight:800}
+  .plan.free li::before{content:"\2713";color:var(--amber)}
+  .plan li b{color:var(--text)}
+  .pill{display:inline-block;font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 7px;white-space:nowrap}
+  .pill.pro{background:rgba(0,230,118,.16);color:var(--primary)}
+  .pill.free{background:rgba(255,179,0,.16);color:var(--amber)}
   footer{text-align:center;color:var(--muted);font-size:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
 </style>
 </head>
@@ -57,10 +88,11 @@
   <header>
     <div class="logo"><span class="shield">&#128737;</span> PAZ</div>
     <h1>O escudo inteligente das suas chamadas, <span>por menos de R$ 0,02 por dia</span></h1>
-    <p class="sub">Bloqueia chamadas indesejadas, spam, robocalls e notificações de SMS/WhatsApp — com histórico 100% no seu aparelho. Nada vai para a nuvem.</p>
+    <p class="sub">Bloqueia chamadas indesejadas, spam e robocalls <b>sem depender de listas negras</b>. No PRO, a ligação de quem não está na sua agenda é <b>derrubada com sinal de ocupado</b>. Tudo processado dentro do seu aparelho &mdash; nada vai para a nuvem.</p>
     <div class="badges">
       <span class="badge">&#128274; <b>Privacidade</b> 100% local</span>
       <span class="badge">&#128176; <b>R$ 6,90</b>/ano</span>
+      <span class="badge hl">&#128222; <b>PRO:</b> sinal de ocupado</span>
       <span class="badge">&#128241; Android nativo</span>
       <span class="badge">&#127381; <b>Feito no Brasil</b></span>
     </div>
@@ -103,6 +135,71 @@
   </section>
 
   <section>
+    <h2>Por que as listas negras não resolvem</h2>
+    <div class="callout warn">
+      <h3>O golpista troca de número a cada ligação &mdash; e isso sai de graça</h3>
+      <p>Praticamente todo bloqueador do mercado roda sobre <b>listas negras</b>: grandes bancos de números já denunciados, normalmente mantidos na nuvem e compartilhados entre milhões de usuários. O problema é a lógica do modelo &mdash; a lista só conhece um número <b>depois</b> que ele já incomodou alguém.</p>
+      <p>Como trocar de chip ou usar um número virtual custa quase nada, o golpista joga fora o número &ldquo;queimado&rdquo; e volta a ligar de um número novo, que ninguém denunciou ainda. A lista vive correndo atrás: <b>quando ela reconhece, você já atendeu</b>.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h4>O número é novo</h4>
+        <p>Chega limpo, sem uma única denúncia registrada em nenhuma base.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h4>O golpe acontece</h4>
+        <p>Milhares de ligações saem antes de o número aparecer em qualquer lista negra.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h4>Denúncia e descarte</h4>
+        <p>Quando a lista enfim atualiza, o número já foi jogado fora e outro assumiu o lugar.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:14px">
+      <h3>O PAZ faz a pergunta inversa</h3>
+      <p>O PAZ não tenta adivinhar se o número é ruim. Ele verifica se o número é <b>alguém que você conhece</b>. Quem não está na sua agenda não precisa te ligar: a chamada é contida logo no primeiro toque &mdash; <b>funciona até com um número que nunca ligou para ninguém antes</b>.</p>
+      <p>A decisão acontece <b>dentro do seu aparelho</b>, por regras e IA local (Gemini Nano), sem consultar nenhuma base compartilhada. E se a mesma pessoa insistir, ligando duas vezes em menos de 3 minutos, o escudo entende que é urgente e libera a chamada.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Todos os planos protegem. O PRO derruba a ligação.</h2>
+    <div class="plans">
+      <div class="plan free">
+        <span class="tag">Gratuito</span>
+        <h3>Escudo silencioso</h3>
+        <ul>
+          <li>Escudo inteligente contra spam, robocalls e desconhecidos</li>
+          <li>A chamada é <b>silenciada</b>: não vibra, mas <b>a tela acende</b></li>
+          <li>Até <b>3 números</b> específicos bloqueados</li>
+          <li><b>3 dias</b> de histórico</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <span class="tag">PRO</span>
+        <h3>Bloqueio de verdade</h3>
+        <ul>
+          <li>Chamada de quem <b>não está nos seus contatos</b> é <b>derrubada na hora</b>, com <b>sinal de ocupado</b> para quem discou</li>
+          <li>Sem acender a tela: o telefone fica em paz de verdade</li>
+          <li>Histórico de <b>até 2 meses (60 dias)</b></li>
+          <li>Números bloqueados <b>ilimitados</b></li>
+          <li>Não Perturbe programado e bloqueio de SMS/mensageiros</li>
+          <li>PAZ Score e classificação por IA local</li>
+          <li>Adicionar à agenda com <b>1 toque</b></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">
+      <b>Transparência:</b> no plano gratuito a ligação é contida, mas o aparelho pode acender a tela. O bloqueio total &mdash; aquele em que a chamada simplesmente não entra e quem discou ouve ocupado &mdash; é <b>exclusivo do PRO</b>. Números que estão nos seus <b>contatos</b> nunca são bloqueados, em nenhum plano, e uma segunda ligação em menos de 3 minutos é sempre liberada.
+    </p>
+  </section>
+
+  <section>
     <h2>Comparativo com os principais apps</h2>
     <div class="tablewrap">
       <table>
@@ -124,8 +221,29 @@
             <td class="yes">Sim</td>
           </tr>
           <tr>
-            <td>Bloqueio de SMS / mensageiros</td>
+            <td>Derruba a ligação (quem disca ouve ocupado)</td>
+            <td class="col-paz yes">Sim <span class="pill pro">PRO</span></td>
+            <td class="yes">Sim</td>
+            <td class="yes">Sim</td>
+            <td class="yes">Sim</td>
+          </tr>
+          <tr>
+            <td>Bloqueia número novo, nunca denunciado</td>
             <td class="col-paz yes">Sim</td>
+            <td class="no">Não</td>
+            <td class="no">Não</td>
+            <td class="part">Parcial</td>
+          </tr>
+          <tr>
+            <td>Precisa de lista negra na nuvem</td>
+            <td class="col-paz yes">Não</td>
+            <td class="no">Sim</td>
+            <td class="no">Sim</td>
+            <td class="part">Parcial</td>
+          </tr>
+          <tr>
+            <td>Bloqueio de SMS / mensageiros</td>
+            <td class="col-paz yes">Sim <span class="pill pro">PRO</span></td>
             <td class="yes">Sim</td>
             <td class="yes">Sim</td>
             <td class="yes">Sim</td>
@@ -133,7 +251,7 @@
           <tr>
             <td>Dados 100% locais (sem nuvem)</td>
             <td class="col-paz yes">Sim</td>
-            <td class="no">Nao</td>
+            <td class="no">Não</td>
             <td class="part">Parcial</td>
             <td class="part">Parcial</td>
           </tr>
@@ -141,18 +259,18 @@
             <td>IA local offline</td>
             <td class="col-paz yes">Sim</td>
             <td class="part">Parcial</td>
-            <td class="no">Nao</td>
-            <td class="no">Nao</td>
+            <td class="no">Não</td>
+            <td class="no">Não</td>
           </tr>
           <tr>
-            <td>Nao Perturbe programado</td>
-            <td class="col-paz yes">Sim</td>
+            <td>Não Perturbe programado</td>
+            <td class="col-paz yes">Sim <span class="pill pro">PRO</span></td>
             <td class="part">Parcial</td>
             <td class="part">Parcial</td>
             <td class="part">Parcial</td>
           </tr>
           <tr>
-            <td>Preco anual (aprox.)</td>
+            <td>Preço anual (aprox.)</td>
             <td class="col-paz yes">R$ 6,90</td>
             <td>~R$ 99,90</td>
             <td>~R$ 89,90</td>
@@ -162,19 +280,22 @@
       </table>
     </div>
     <p class="note">
-      <b>Aviso:</b> os valores e recursos dos concorrentes sao baseados em fontes publicas (Google Play e sites oficiais) e podem variar por regiao e promocao. Consulte os respectivos aplicativos para informacoes atualizadas. O PAZ nao possui qualquer afiliacao, endosso ou patrocinio das marcas citadas. Comparativo de carater informativo, sem juizo de valor entre os produtos.
+      <b>Aviso:</b> os valores e recursos dos concorrentes são baseados em fontes públicas (Google Play e sites oficiais) e podem variar por região, plano e promoção. &ldquo;Lista negra&rdquo; aqui significa base colaborativa de números já denunciados. O PAZ não possui qualquer afiliação, endosso ou patrocínio das marcas citadas. Comparativo de caráter informativo, sem juízo de valor entre os produtos.
+    </p>
+    <p class="note" style="margin-top:6px">
+      A marca <span class="pill pro">PRO</span> indica recurso exclusivo da versão PRO do PAZ. No plano gratuito o PAZ já contém a chamada, que é <b>silenciada</b> (não vibra, mas a tela acende).
     </p>
   </section>
 
   <section class="cta">
     <h2>Proteja suas chamadas por <span class="price">R$ 6,90/ano</span></h2>
-    <p>Isso da menos de R$ 0,02 por dia. Sem mensalidade, sem cobranca automatica. Teste o PRO gratis por 30 dias na versao Freemium.</p>
-    <a class="btn" href="https://github.com/Joel-luz/PAZ">Conheca o projeto no GitHub</a>
+    <p>Isso dá menos de R$ 0,02 por dia. Sem mensalidade, sem cobrança automática. Teste o PRO grátis por 30 dias na versão Freemium e veja a ligação de um número fora da sua agenda ser <b>derrubada com sinal de ocupado</b>.</p>
+    <a class="btn" href="https://github.com/Joel-luz/PAZ">Conheça o projeto no GitHub</a>
   </section>
 
   <footer>
-    PAZ &mdash; Escudo Inteligente de Chamadas &bull; Historico 100% local &bull; Feito no Brasil<br>
-    Precos de concorrentes meramente ilustrativos e sujeitos a alteracao.
+    PAZ &mdash; Escudo Inteligente de Chamadas &bull; Histórico 100% local &bull; Feito no Brasil<br>
+    Preços de concorrentes meramente ilustrativos e sujeitos a alteração.
   </footer>
 
 </div>
