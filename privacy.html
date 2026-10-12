@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAZ — Política de Privacidade</title>
+<style>
+  :root{--bg:#0E1116;--surface:#161B22;--surface2:#1C2028;--line:#2E343E;--text:#F0F2F5;--muted:#B4C0B6;--primary:#00E676;--primary-dark:#00B359}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+  .wrap{max-width:800px;margin:0 auto;padding:24px 20px 64px}
+  header{text-align:center;padding:40px 0 24px;border-bottom:1px solid var(--line)}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:26px}
+  .shield{width:34px;height:34px;border-radius:10px;background:var(--primary);display:inline-flex;align-items:center;justify-content:center;color:#003918;font-size:20px}
+  h1{font-size:28px;font-weight:800;margin:18px 0 8px}h1 span{color:var(--primary)}
+  .data{color:var(--muted);font-size:14px;margin-top:4px}
+  h2{font-size:20px;font-weight:700;margin:28px 0 12px;color:var(--primary)}
+  p{font-size:14.5px;margin-bottom:14px;color:var(--muted)}
+  p b,p strong{color:var(--text)}ul{margin:10px 0 16px;padding-left:20px}
+  li{font-size:14px;color:var(--muted);margin-bottom:6px}li b{color:var(--text)}
+  a{color:var(--primary)}hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+  .last-upd{text-align:center;font-size:12.5px;color:var(--muted);margin:6px 0 0}
+  footer{text-align:center;padding:30px 0 10px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo"><span class="shield">&nbsp;</span> PAZ</div>
+<h2>1. Introdução</h2>
+<p>O <b>PAZ — Escudo Inteligente de Chamadas</b> é um aplicativo móvel desenvolvido pela <b>Aistudio</b> que tem como única finalidade proteger o usuário contra chamadas telefônicas indesejadas (spam, robocalls, telemarketing e números desconhecidos).</p>
+<p>Esta política descreve de forma clara e transparente quais informações o PAZ <b>não coleta</b>, quais permissões do sistema solicita e como os dados do usuário são tratados em todas as versões (Freemium, PRO e PRO Empresarial).</p>
+
+<h2>2. Dados Que <span style="color:var(--primary)">Não</span> Coletamos</h2>
+<p>O PAZ foi projetado com <b>privacidade por design</b>. O aplicativo <b>NUNCA</b> coleta, armazena ou transmite:</p>
+<ul>
+  <li><b>Dados pessoais</b> — nome, e-mail, CPF, endereço, data de nascimento ou qualquer identificador do usuário.</li>
+  <li><b>Conta ou cadastro</b> — não exige criação de conta, login ou senha.</li>
+  <li><b>Números de telefone</b> — processados exclusivamente no próprio aparelho, nunca saem dele.</li>
+  <li><b>Agenda de contatos</b> — mesmo com permissão READ_CONTACTS, a consulta é 100% local.</li>
+  <li><b>Histórico de chamadas</b> — fica apenas no banco Room (SQLite) do aparelho.</li>
+  <li><b>Localização geográfica</b> — nunca solicita acesso à localização do dispositivo.</li>
+  <li><b>Analytics ou telemetria</b> — não há SDKs de rastreamento, cookies ou monitoramento de uso.</li>
+</ul>
+<p>Resumo: <b>o PAZ não sabe quem você é</b>. Ele ouve as chamadas recebidas (sem gravação de áudio), decide na hora se deve tocar ou silenciar, e registra a decisão no histórico local do seu celular.</p>
+
+<h2>3. Permissões do Sistema Utilizadas</h2>
+<ul>
+  <li><b>CallScreeningService</b> — permissão nativa do Android Telecom para interceptar chamadas recebidas antes de tocarem. Essencial para o funcionamento.</li>
+  <li><b>READ_CONTACTS</b> (opcional) — libera automaticamente chamadas de contatos salvos. O usuário pode desativar. Consulta 100% local.</li>
+  <li><b>INTERNET</b> — apenas para baixar a lista pública de patrocinadores do Supabase (uma vez a cada 24h). Única comunicação de rede.</li>
+  <li><b>FOREGROUND_SERVICE</b> e <b>SYSTEM_ALERT_WINDOW</b> — usadas para exibir a interface em primeiro plano.</li>
+</ul>
+  <h1>Política de <span>Privacidade</span></h1>
+  <p class="data">Atualizada em 12 de outubro de 2026 — versão 1.0</p>
+</header>
+<h2>4. Dados Armazenados Localmente</h2>
+<ul>
+  <li><b>Histórico de chamadas</b> (número, data/hora, motivo) — 3 dias no gratuito, 60 dias no PRO. Limpeza automática.</li>
+  <li><b>Preferências do usuário</b> (escudo, regras, modo não perturbe, zoom de texto) — tudo local.</li>
+  <li><b>Token do Supabase</b> (criptografado, se configurado) — apenas para validar conexão.</li>
+  <li><b>Lista de números bloqueados</b> — até 3 no gratuito, ilimitada no PRO.</li>
+</ul>
+<p>Todos apagados ao desinstalar o app.</p>
+
+<h2>5. Supabase — Serviço Opcional</h2>
+<p>Integração opcional. Apenas <b>consultas de leitura pública</b> à tabela sponsors (patrocinadores). Nenhum dado pessoal ou de chamada é enviado. Conexão HTTPS.</p>
+
+<h2>6. Compartilhamento com Terceiros</h2>
+<p>O PAZ <b>não compartilha</b> dados. Não há SDKs de publicidade, analytics, redes sociais ou servidores de coleta.</p>
+
+<h2>7. Segurança</h2>
+<p>Código-fonte <b>aberto</b> no GitHub para auditoria. Toda triagem é local. Credenciais Supabase armazenadas no cofre do Android.</p>
+
+<h2>8. Controle do Usuário</h2>
+<ul>
+  <li><b>Desativar escudo</b> — toque em PAUSA.</li>
+  <li><b>Revogar permissões</b> — nas configurações do Android.</li>
+  <li><b>Excluir dados</b> — o app já expurga registros antigos automaticamente.</li>
+  <li><b>Desinstalar</b> — todos os dados locais são apagados.</li>
+</ul>
+
+<h2>9. Contato</h2>
+<p>Dúvidas: <a href="mailto:tekno.parts@paz.local">tekno.parts@paz.local</a></p>
+
+<hr>
+<footer>
+  PAZ — Escudo Inteligente de Chamadas &bull; Histórico 100% local &bull; Feito no Brasil<br>
+  <a href="index.html">Página inicial</a> &bull; <a href="https://github.com/Joel-luz/PAZ">GitHub</a>
+</footer>
+</div>
+</body>
+</html>
